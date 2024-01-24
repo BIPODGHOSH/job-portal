@@ -1,19 +1,13 @@
-import { useState } from "react";
-import "./App.css";
-import Navbar from "./components/Navbar";
-import Header from "./components/Header";
-import SearchBar from "./components/SearchBar";
+import React from "react";
+import Home from "./components/Home";
+import { Routes, Route } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
-    <>
-      <div>
-        <Navbar />
-        <Header />
-        <SearchBar />
-      </div>
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
   );
-}
+};
 
 export default App;
