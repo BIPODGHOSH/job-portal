@@ -53,9 +53,7 @@ function Home() {
         <Header />
         <SearchBar />
       </div>
-      <div className="">
-        <Jobcard jobs={jobs} />
-      </div>
+      <div className="">{jobs.length > 0 && <Jobcard jobs={jobs} />}</div>
     </>
   );
 }
