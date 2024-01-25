@@ -5,13 +5,16 @@ import Header from "./Header";
 import SearchBar from "./SearchBar";
 import Jobcard from "./Jobcard";
 import dayjs from "dayjs";
+import Loader from "./Loader";
 
 function Home() {
   const [jobs, setJob] = useState([]);
+  const [loading, setLoading] = useState();
 
   const url = "https://api.lever.co/v0/postings/leverdemo?mode=json";
   useEffect(() => {
     function jobPostings() {
+      setLoading(true);
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
@@ -37,6 +40,7 @@ function Home() {
             });
 
           setJob(modifiedData);
+          setLoading(false);
         })
         .catch((error) => {
           console.error("Error fetching job data:", error);
@@ -53,7 +57,17 @@ function Home() {
         <Header />
         <SearchBar />
       </div>
-      <div className="">{jobs.length > 0 && <Jobcard jobs={jobs} />}</div>
+      <div className="flex justify-center w-screen">
+        {loading ? (
+          <center>
+            <Loader />
+          </center>
+        ) : (
+          <div className=" w-10/12">
+            {jobs.length > 0 && <Jobcard jobs={jobs} />}
+          </div>
+        )}
+      </div>
     </>
   );
 }

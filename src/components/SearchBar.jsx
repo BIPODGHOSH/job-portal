@@ -4,7 +4,7 @@ const SearchBar = () => {
   return (
     <div className="flex justify-center gap-4 my-10 px-10">
       <select className="w-64 py-3 pl-4 bg-zinc-100 font-semibold rounded-md">
-        <option value="" disabled hidden>
+        <option value="" disabled hidden selected>
           Job Role
         </option>
         <option value="Frontend Developer">Frontend Developer</option>
@@ -15,7 +15,7 @@ const SearchBar = () => {
       </select>
 
       <select className="w-64 py-3 pl-4 bg-zinc-100 font-semibold rounded-md">
-        <option value="" disabled hidden>
+        <option value="" disabled hidden selected>
           Job Type
         </option>
         <option value="Full Time">Full Time</option>
@@ -25,7 +25,7 @@ const SearchBar = () => {
       </select>
 
       <select className="w-64 py-3 bg-zinc-100 font-semibold rounded-md pl-4">
-        <option value="" disabled hidden>
+        <option value="" disabled hidden selected>
           Location
         </option>
         <option value="Remote">Remote</option>
@@ -34,7 +34,7 @@ const SearchBar = () => {
       </select>
 
       <select className="w-64 py-3 px-4 pl-4 bg-zinc-100 font-semibold rounded-md outline-none">
-        <option value="" disabled hidden>
+        <option value="" disabled hidden selected>
           Experience
         </option>
         <option value="Fresher">Fresher</option>
