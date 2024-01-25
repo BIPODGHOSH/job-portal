@@ -20,7 +20,7 @@ const Jobcard = ({ jobs }) => {
       {jobs &&
         jobs.map((job, index) => (
           <Link to="/jobdetails" state={job} key={index}>
-            <div className="mx-40 mb-4" key={index}>
+            <div className="mx-2 sm:mx-40 mb-4" key={index}>
               <div className="flex justify-between items-center px-6 py-4 bg-zinc-200 rounded-md border border-black shadow-lg hover:border-blue-500 hover:translate-y-1 hover:scale-105">
                 <div className="flex flex-col gap-2">
                   <h1 className="">{job.jobTitle}</h1>

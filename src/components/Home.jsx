@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-
+import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import Header from "./Header";
 import SearchBar from "./SearchBar";
@@ -8,10 +7,19 @@ import dayjs from "dayjs";
 import Loader from "./Loader";
 
 function Home() {
-  const [jobs, setJob] = useState([]);
+  const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState();
 
   const url = "https://api.lever.co/v0/postings/leverdemo?mode=json";
+
+  // State to store the selected filters
+  const [filters, setFilters] = useState({
+    jobRole: "",
+    jobType: "",
+    location: "",
+    experience: "",
+  });
+
   useEffect(() => {
     function jobPostings() {
       setLoading(true);
@@ -36,10 +44,21 @@ function Home() {
                 jobApplyUrl: job.applyUrl,
                 jobPostingDate: dayjs(job.createdAt).format("MM-DD-YYYY"),
                 jobSkills: job.lists[0]?.content,
+                jobExperience: job.experience,
               };
             });
 
-          setJob(modifiedData);
+          // Apply filters to the job data
+          const filteredJobs = modifiedData.filter((job) => {
+            return (
+              (!filters.jobRole || job.jobTitle === filters.jobRole) &&
+              // (!filters.jobType || job.jobType === filters.jobType) &&
+              (!filters.location || job.jobType === filters.location) &&
+              (!filters.experience || job.jobExperience === filters.experience)
+            );
+          });
+
+          setJobs(filteredJobs);
           setLoading(false);
         })
         .catch((error) => {
@@ -48,14 +67,18 @@ function Home() {
     }
 
     jobPostings();
-  }, []);
+  }, [filters]); // Trigger the effect when filters change
+
+  const handleSearch = (selectedFilters) => {
+    setFilters(selectedFilters);
+  };
 
   return (
     <>
       <div>
         <Navbar />
         <Header />
-        <SearchBar />
+        <SearchBar onSearch={handleSearch} />
       </div>
       <div className="flex justify-center w-screen">
         {loading ? (

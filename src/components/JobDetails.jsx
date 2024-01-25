@@ -12,7 +12,7 @@ const JobDetails = () => {
   return (
     <>
       <Navbar />
-      <div className="mx-40 my-16">
+      <div className="mx-2 sm:mx-40 my-16">
         <div className="flex flex-col gap-24 justify-between items-center px-6 py-4 bg-zinc-200 rounded-md border border-black shadow-lg">
           <div className="flex flex-col gap-2">
             <h1 className="">{job.jobTitle}</h1>
