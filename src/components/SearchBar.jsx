@@ -18,9 +18,9 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <div className="flex justify-center gap-1 sm:gap-4 my-10 px-10 w-full">
+    <div className="flex justify-center gap-0.5 sm:gap-4 my-10 px-10 w-full">
       <select
-        className=" w-20 sm:w-64 py-3 pl-0 px-0 sm:px-4 sm:pl-4 bg-zinc-100 font-semibold rounded-md text-xs"
+        className=" w-20 sm:w-64 py-3 pl-0 px-0 sm:px-4 sm:pl-4 bg-zinc-100 font-semibold rounded-md text-xs sm:text-sm"
         onChange={(e) => setSelectedJobRole(e.target.value)}
       >
         <option value="" disabled hidden selected>
@@ -34,7 +34,7 @@ const SearchBar = ({ onSearch }) => {
       </select>
 
       <select
-        className="w-20 sm:w-64 py-3 pl-0 px-0 sm:px-4 sm:pl-4 bg-zinc-100 font-semibold rounded-md text-xs"
+        className="w-20 sm:w-64 py-3 pl-0 px-0 sm:px-4 sm:pl-4 bg-zinc-100 font-semibold rounded-md text-xs sm:text-sm"
         onChange={(e) => setSelectedJobType(e.target.value)}
       >
         <option value="" disabled hidden selected>
@@ -47,7 +47,7 @@ const SearchBar = ({ onSearch }) => {
       </select>
 
       <select
-        className="w-20 sm:w-64 py-3 pl-0 px-0 sm:px-4 sm:pl-4 bg-zinc-100 font-semibold rounded-md text-xs"
+        className="w-20 sm:w-64 py-3 pl-0 px-0 sm:px-4 sm:pl-4 bg-zinc-100 font-semibold rounded-md text-xs sm:text-sm"
         onChange={(e) => setSelectedLocation(e.target.value)}
       >
         <option value="" disabled hidden selected>
@@ -59,7 +59,7 @@ const SearchBar = ({ onSearch }) => {
       </select>
 
       <select
-        className="w-20 sm:w-64 py-3 pl-0 px-0 sm:px-4 sm:pl-4 bg-zinc-100 font-semibold rounded-md outline-none text-xs"
+        className="w-20 sm:w-64 py-3 pl-0 px-0 sm:px-4 sm:pl-4 bg-zinc-100 font-semibold rounded-md outline-none text-xs sm:text-sm"
         onChange={(e) => setSelectedExperience(e.target.value)}
       >
         <option value="" disabled hidden selected>
@@ -72,7 +72,7 @@ const SearchBar = ({ onSearch }) => {
       </select>
 
       <button
-        className=" w-28 sm:w-64 py-3 bg-blue-500 font-semibold rounded-md"
+        className=" w-full sm:w-64 py-3 bg-blue-500 font-semibold rounded-md sm:text-lg text-xs"
         onClick={handleSearch}
       >
         Search
