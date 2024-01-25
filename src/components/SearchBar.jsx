@@ -53,7 +53,7 @@ const SearchBar = ({ onSearch }) => {
         <option value="" disabled hidden selected>
           Location
         </option>
-        <option value="Remote">Remote</option>
+        <option value="remote">Remote</option>
         <option value="On-site">On site</option>
         <option value="Hybrid">Hybrid</option>
       </select>
