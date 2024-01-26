@@ -80,7 +80,7 @@ function Home() {
         <Header />
         <SearchBar onSearch={handleSearch} />
       </div>
-      <div className="flex justify-center w-screen">
+      <div className="flex justify-center">
         {loading ? (
           <center>
             <Loader />
